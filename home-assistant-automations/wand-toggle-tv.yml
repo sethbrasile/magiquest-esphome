@@ -1,0 +1,18 @@
+alias: wand-tv-template
+description: wand turn on tv
+trigger:
+  - type: turned_on
+    platform: device
+    device_id: <some id>
+    entity_id: <some id>
+    domain: binary_sensor
+  - type: turned_on
+    platform: device
+    device_id: <some id>
+    entity_id: <some id>
+    domain: binary_sensor
+condition: []
+action:
+  - service: script.living_room_apple_tv_toggle_power
+    data: {}
+mode: single

@@ -1,0 +1,76 @@
+# suitable for esp8266 based devices
+substitutions:
+  name: wand-sensor-<name of location or device you wish to control>
+  friendly_name: wand-sensor-<name of location or device you wish to control>
+  wand_retrigger_timeout: 2s
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  # You can set this to true if you want to share exact config (therefore also name field) among many.
+  # Unique MAC will be added to name.
+  name_add_mac_suffix: false
+  project:
+    name: esphome.web
+    version: '1.0'
+  libraries:
+   - Wire
+   - IRremote
+
+esp8266:
+  board: esp01_1m
+
+remote_receiver:
+  pin:
+    # This has to match the correct GPIO pin for your device
+    # GPIO2 corresponds to pin D4 on a Wemos D1 mini
+    # https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
+    # If you're using a different device, keep in mind that some pins have specific purposes and you'll need
+    # to do some trialing and reading before you'll know for sure
+    number: GPIO2
+    # Depending on your device, if this is not correct, you'll get a warning in
+    # the logs on boot suggesting you change it
+    inverted: True
+  dump: magiquest
+
+binary_sensor:
+- platform: remote_receiver
+  name: "Child 1 Wand"
+  magiquest:
+    wand_id: !secret wand_1_address
+  filters:
+  - delayed_off: ${wand_retrigger_timeout}
+# Repeat this for as many wands as you have
+# - platform: remote_receiver
+#   name: "Child 2 Wand"
+#   magiquest:
+#     wand_id: !secret wand_2_address
+#   filters:
+#   - delayed_off: ${wand_retrigger_timeout}
+
+# Enable logging
+logger:
+
+# Allow Over-The-Air updates
+ota:
+  platform: esphome
+
+# Enable Home Assistant API communication
+api:
+  encryption:
+    key: !secret home_assistant_api_key
+
+wifi:
+  # only 2.4Ghz wifi networks work!! No 5Ghz!! Combined should be fine though?
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  # Edit "domain" to match your own networking setup if you have a local domain at home
+  # domain: ".home"
+  # This is needed so that the device connects to wifi quickly when you plug it in
+  fast_connect: true
+  # Without this, there's an unbearable delay after someone waves the wand
+  power_save_mode: none
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device via WiFi AP
+# captive_portal:

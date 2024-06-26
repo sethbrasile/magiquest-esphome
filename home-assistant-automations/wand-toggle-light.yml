@@ -1,0 +1,21 @@
+alias: wand-toggle-light
+description: Wand toggle some light
+trigger:
+  - type: turned_on
+    platform: device
+    device_id: <some id>
+    entity_id: <some id>
+    domain: binary_sensor
+  - type: turned_on
+    platform: device
+    device_id: <some id>
+    entity_id: <some id>
+    domain: binary_sensor
+condition: []
+action:
+  - service: light.toggle
+    metadata: {}
+    data: {}
+    target:
+      device_id: <some id>
+mode: single
