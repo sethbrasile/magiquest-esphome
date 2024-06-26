@@ -19,3 +19,11 @@ The `home-assistant-automations` directory is intended to become YAML definition
 |------|------|-----------------------|------|
 | ESP8266 | ESP-12F | Wemos D1 Mini clone - https://amzn.to/3zdG472 | GPIO2 |
 | ESP32 | ESP32-WROOM-32 | ESP32-DevKitC-32 - https://amzn.to/3xBOYek | GPIO4 |
+
+## 3D Printable Case
+
+`esp8266_ir_case.scad` is a case designed for the Wemos D1 Mini
+
+STL is available to download at Printables and Thingiverse which are both linked in the description of the video above.
+
+This is the OpenSCAD file. You can use OpenSCAD to view this file and convert into to an STL so you can print it.
