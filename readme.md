@@ -15,6 +15,7 @@ The `home-assistant-automations` directory is intended to become YAML definition
 
 ## Tested ESP device models
 
-Type | Chip | Specific Model Tested | Pin | GPIO
-ESP8266 | ESP-12F | Wemos D1 Mini clone  https://amzn.to/3zdG472 | GPIO2
-ESP32 | ESP32-WROOM-32 | ESP32-DevKitC-32 https://amzn.to/3xBOYek | GPIO4
+| Type | Chip | Specific Model Tested | GPIO |
+|------|------|-----------------------|------|
+| ESP8266 | ESP-12F | Wemos D1 Mini clone - https://amzn.to/3zdG472 | GPIO2 |
+| ESP32 | ESP32-WROOM-32 | ESP32-DevKitC-32 - https://amzn.to/3xBOYek | GPIO4 |
