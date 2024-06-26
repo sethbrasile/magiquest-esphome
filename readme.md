@@ -1,5 +1,9 @@
 # Magiquest ESPHome Configurations
 
+This repository is meant to accompany the guide here: https://youtu.be/6ElDx8rN_Po
+
+The configurations in this repository allow you to trigger home assistant automations with Magiquest magic wands by receiving their IR signals with an ESP microcontroller + ESPHome.
+
 You'll find the relevent templates in the `esphome-templates` directory
 
 The `home-assistant-automations` directory is intended to become YAML definitions for examples of home assistant automations and scripts, but it needs work and I'm not certain how helpful it will be yet. Maybe it will get removed.
