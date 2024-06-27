@@ -26,4 +26,4 @@ The `home-assistant-automations` directory is intended to become YAML definition
 
 STL is available to download at Printables and Thingiverse which are both linked in the description of the video above.
 
-This is the OpenSCAD file. You can use OpenSCAD to view this file and convert into to an STL so you can print it.
+This is the OpenSCAD file. You can use OpenSCAD to view/edit this file and convert into to an STL.
